@@ -1,7 +1,7 @@
 PImage bg;
 PFont Font1;
 int x = 0;
-
+Snake mySnake;
 void setup() 
 {
   size(1024, 768);
@@ -10,7 +10,7 @@ void setup()
   Font1 = createFont("Arial Bold", 18);
   fill(102);
   bg = loadImage("arcade.jpg");
-  
+  mySnake = new Snake();
 }
 
 void draw() 
@@ -22,4 +22,16 @@ void draw()
   text("Please select a game", width/2 - 120, height/2 - 100);
   text("Pong", width/2, height/2 -50);
   text("Snake", width/2, height/2);
+}
+
+void mousePressed()
+{
+  if (mouseX == width/2 && mouseY == height/2)
+  {
+    mySnake.run();
+  }
+  if ((mouseX > 500) && (mouseX < 520) && (mouseY >370) && (mouseY<395))
+  {
+    //class for snake game (mouseX == width/2 && mouseY == height/2)
+  }
 }
