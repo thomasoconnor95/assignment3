@@ -28,10 +28,10 @@ void mousePressed()
 {
   if (mouseX == width/2 && mouseY == height/2)
   {
-    mySnake.run();
+    //class for pong
   }
   if ((mouseX > 500) && (mouseX < 520) && (mouseY >370) && (mouseY<395))
   {
-    //class for snake game (mouseX == width/2 && mouseY == height/2)
+    mySnake.run();
   }
 }
