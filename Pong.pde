@@ -22,6 +22,7 @@ class Pong
     ballMove();
     ballBounce();
     paddleMove();
+    paddleBoundary();
   }
   void drawPaddle()
   {
@@ -119,4 +120,28 @@ class Pong
       }
     }
   }//end paddleMove
+  
+    //paddleboundary so the paddle doesnt leave the screen
+  void paddleBoundary()
+  {
+    //left paddle
+    if(paddleLeftY - paddleH/2 -1 < 0)
+    {
+      paddleLeftY += paddleS;
+    }
     
+    if( paddleLeftY + paddleH/2 +1 > height)
+    {
+      paddleLeftY -= paddleS;
+    }
+    
+    //right paddle
+    if(paddleRightY - paddleH/2 -1 <0)
+    {
+      paddleRightY += paddleS;
+    }
+    if(paddleRightY + paddleH/2 +1 > height)
+    {
+      paddleRightY -= paddleS;
+    }
+  }//end paddleboundary
