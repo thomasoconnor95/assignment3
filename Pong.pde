@@ -4,6 +4,8 @@ class Pong
   int paddleRightX, paddleRightY;
   int x, y, w;
   int speedX, speedY;
+  int scoreLeft = 0;
+  int scoreRight = 0;
   
   Pong()
   {
@@ -18,6 +20,7 @@ class Pong
     drawPaddle();
     drawBall();
     ballMove();
+    ballBounce();
   }
   void drawPaddle()
   {
@@ -59,3 +62,28 @@ class Pong
       y += speedY;
     }
   }
+  
+  void ballBounce()
+  {
+    //if the ball hits the sides
+    if(x > width - w/2); //ball hits the right
+    {
+      scoreLeft++;
+      speedX = - speedX;
+    }
+    
+    //ball hits left
+    if( x < 0+ w/2)
+    {
+      scoreRight++;
+    }
+    //ball hits top or bottom of the screen
+    if( y > width - w/2)
+    {
+      speedY = - speedY;
+    }
+    else if (y<0 + w/2)
+    {
+      speedY = - speedY;
+    }
+  }//end ballBounce
