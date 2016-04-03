@@ -1,7 +1,7 @@
 class Pong 
 {
   int paddleLeftX, paddleLeftY, paddleW, paddleH;
-  int paddleRightX, paddleRightY;
+  int paddleRightX, paddleRightY, paddleS;
   int x, y, w;
   int speedX, speedY;
   int scoreLeft = 0;
@@ -21,6 +21,7 @@ class Pong
     drawBall();
     ballMove();
     ballBounce();
+    paddleMove();
   }
   void drawPaddle()
   {
@@ -87,3 +88,35 @@ class Pong
       speedY = - speedY;
     }
   }//end ballBounce
+  
+  void paddleMove()
+  {
+    //left paddle
+    if(paddleLeftY < height - (paddleH/2) && paddleLeftY > paddleH/2)
+    {
+      if(upLeft == true)
+      {
+        paddleLeftY -= paddleS;
+      }
+      
+      if(downLeft == true)
+      {
+        paddleLeftY += paddleS;
+      }
+    }
+    
+    //right paddle
+    if(paddleRightY < height - (paddleH/2) && paddleRightY > paddleH/2)
+    {
+      if (upRight == true)
+      {
+        paddleRightY -= paddleS;
+      }
+      
+      if(downRight == true)
+      {
+        paddleRightY += paddleS;
+      }
+    }
+  }//end paddleMove
+    
