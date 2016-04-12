@@ -7,6 +7,7 @@ class Snake
   int[] dx = {0,0,1,-1}, dy = {1,-1,0,0};
   int applex = 12;
   int appley = 10;
+  boolean gameover = false;
   
   Snake()
   {
@@ -37,25 +38,49 @@ class Snake
       fill(0,255,0);
       rect(x.get(i)*bs, y.get(i)*bs, bs, bs);
     }
-    fill(255,0,0);
-    rect(applex*bs, appley*bs, bs, bs); //apple
-    if (frameCount %5 ==0)
+    if(!gameover)
     {
-      x.add(0,x.get(0) + dx[dir]);
-      y.add(0,y.get(0) + dy[dir]);
-      //if snake touches apple
-      if(x.get(0) ==applex && y.get(0)==appley)
+      fill(255,0,0);
+      rect(applex*bs, appley*bs, bs, bs); //apple
+      if (frameCount %5 ==0)
       {
-        //apple spawns in a random place
-        applex = (int)random(0,w);
-        appley = (int)random(0,h);
-      }
-      else
-      {
-        x.remove(x.size()-1);
-        y.remove(y.size()-1);
+        x.add(0,x.get(0) + dx[dir]);
+        y.add(0,y.get(0) + dy[dir]);
+        //if the snake goes passed the edges of screen game over
+        if(x.get(0)< 0 || y.get(0) < 0 || x.get(0) >= w || y.get(0) >= h)
+        {
+          gameover = true;
+        }
+        //if snake touches apple
+        if(x.get(0) ==applex && y.get(0)==appley)
+        {
+          //apple spawns in a random place
+          applex = (int)random(0,w);
+          appley = (int)random(0,h);
+        }
+        else
+        {
+          x.remove(x.size()-1);
+          y.remove(y.size()-1);
+        }
       }
     }
+    else
+    {
+      fill(0);
+      textSize(30);
+      textAlign(CENTER);
+      text("Game Over, Press space to restart", width/2, height/2);
+      if(keyPressed && key ==' ')
+      {
+        x.clear();
+        y.clear();
+        x.add(5);
+        y.add(5);
+        gameover = false;
+      }
+    }
+     
   }
   void keyPressed()
   {
