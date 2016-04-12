@@ -1,11 +1,18 @@
-class Snake
+class Snake 
 {
-  float x =0;
-  float y=0;
+  ArrayList<Integer> x = new ArrayList<Integer>(), y = new ArrayList<Integer>();
+  int w = 30;
+  int h = 30;
+  int bs = 20;
   
-  Pong()
+  Snake()
   {
     
+  }
+  void setup()
+  {
+    x.add(5);
+    y.add(5);
   }
   void run()
   {
@@ -13,6 +20,19 @@ class Snake
   }
   void display()
   {
-    image(bg,x,y);
+    background(255);
+    for (int i = 0; i < w;i ++)
+    {
+      line(i*bs, 0, i*bs, height);
+    }
+    for( int i = 0; i < h; i++)
+    {
+      line(0, i*bs, width, i*bs);
+    }
+    for( int i = 0; i < x.size(); i++);
+    {
+      fill(0,255,0);
+      rect(x.get(i)*bs, y.get(i)*bs, bs, bs);
+    }
   }
 }
