@@ -34,5 +34,12 @@ class Snake
       fill(0,255,0);
       rect(x.get(i)*bs, y.get(i)*bs, bs, bs);
     }
+    if (frameCount %5 ==0)
+    {
+      x.add(0,x.get(0) + dx[dir]);
+      y.add(0,y.get(0) + dy[dir]);
+      x.remove(x.size()-1);
+      y.remove(y.size()-1);
+    }
   }
 }
