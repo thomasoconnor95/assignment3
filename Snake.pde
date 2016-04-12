@@ -4,6 +4,7 @@ class Snake
   int w = 30;
   int h = 30;
   int bs = 20;
+  int[] dx = {0,0,1,-1}, dy = {1,-1,0,0};
   int applex = 12;
   int appley = 10;
   
@@ -36,6 +37,8 @@ class Snake
       fill(0,255,0);
       rect(x.get(i)*bs, y.get(i)*bs, bs, bs);
     }
+    fill(255,0,0);
+    rect(applex*bs, appley*bs, bs, bs); //apple
     if (frameCount %5 ==0)
     {
       x.add(0,x.get(0) + dx[dir]);
