@@ -51,6 +51,14 @@ class Snake
         {
           gameover = true;
         }
+        //if snake crashes into itself
+        for(int i = 1; i < x.size(); i++)
+        {
+          if(x.get(0) == x.get(i) &&y.get(0) == y.get(i))
+          {
+            gameover = true;
+          }
+        }
         //if snake touches apple
         if(x.get(0) ==applex && y.get(0)==appley)
         {
@@ -85,7 +93,9 @@ class Snake
   void keyPressed()
   {
     int newdir = key =='s' ? 0 : (key=='w' ? 1 : (key=='d' ? 2 : (key=='a' ? 3 : -1)));
-    if (newdir != -1)
+    if (newdir != -1 && (x.size() <= 1 || !(x.get(1)== x.get(0) + dx[newdir] && y.get(1)==y.get(0)+ dy[newdir])))
     {
       dir = newdir;
+    }
+  }
 }
