@@ -4,6 +4,8 @@ class Snake
   int w = 30;
   int h = 30;
   int bs = 20;
+  int applex = 12;
+  int appley = 10;
   
   Snake()
   {
@@ -42,4 +44,10 @@ class Snake
       y.remove(y.size()-1);
     }
   }
+  void keyPressed()
+  {
+    int newdir = key =='s' ? 0 : (key=='w' ? 1 : (key=='d' ? 2 : (key=='a' ? 3 : -1)));
+    if (newdir != -1)
+    {
+      dir = newdir;
 }
