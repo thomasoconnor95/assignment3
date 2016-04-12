@@ -43,8 +43,18 @@ class Snake
     {
       x.add(0,x.get(0) + dx[dir]);
       y.add(0,y.get(0) + dy[dir]);
-      x.remove(x.size()-1);
-      y.remove(y.size()-1);
+      //if snake touches apple
+      if(x.get(0) ==applex && y.get(0)==appley)
+      {
+        //apple spawns in a random place
+        applex = (int)random(0,w);
+        appley = (int)random(0,h);
+      }
+      else
+      {
+        x.remove(x.size()-1);
+        y.remove(y.size()-1);
+      }
     }
   }
   void keyPressed()
