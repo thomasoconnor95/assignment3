@@ -6,8 +6,7 @@ PFont Font1;
 int x = 0;
 Snake mySnake;
 Pong myPong;
-//switch statement for controlP5 buttons
-String mode = "Pong";
+
 void setup() 
 {
   size(1024, 768);
@@ -17,10 +16,6 @@ void setup()
   fill(102);
   bg = loadImage("arcade.jpg");
   cp5 = new ControlP5(this);
-  
-  /*two buttons for each game
-  Button("Pong", width/2, height/2-50);
-  Button("Snake",width/2, height/2);*/
   
   mySnake = new Snake();
   myPong = new Pong();
