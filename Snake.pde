@@ -1,4 +1,4 @@
-class Snake 
+class Snake
 {
   ArrayList<Integer> x = new ArrayList<Integer>(), y = new ArrayList<Integer>();
   int w = 30;
@@ -13,7 +13,7 @@ class Snake
   
   Snake()
   {
-    
+    run();
   }
   void setup()
   {
