@@ -4,6 +4,8 @@ class Snake
   int w = 30;
   int h = 30;
   int bs = 20;
+  int i;
+  int dir;
   int[] dx = {0,0,1,-1}, dy = {1,-1,0,0};
   int applex = 12;
   int appley = 10;
@@ -98,5 +100,4 @@ class Snake
       dir = newdir;
     }
   }
-
-}
+}}
