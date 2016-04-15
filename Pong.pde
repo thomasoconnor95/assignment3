@@ -13,7 +13,7 @@ class Pong
   boolean downRight;
   Pong()
   {
-    
+    run();
   }
   void run()
   {
