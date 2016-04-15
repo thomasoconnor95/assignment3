@@ -22,9 +22,9 @@ class Snake
   }
   void run()
   {
-    display();
+    draw();
   }
-  void display()
+  void draw()
   {
     background(255);
     for (int i = 0; i < w;i ++)
