@@ -11,15 +11,16 @@ class Pong
   boolean downLeft;
   boolean upRight;
   boolean downRight;
+  
   Pong()
   {
     run();
   }
   void run()
   {
-    display();
+    draw();
   }
-  void display()
+  void draw()
   {
     drawPaddle();
     drawBall();
