@@ -6,7 +6,11 @@ class Pong
   int speedX, speedY;
   int scoreLeft = 0;
   int scoreRight = 0;
-  
+  boolean anyKey;
+  boolean upLeft;
+  boolean downLeft;
+  boolean upRight;
+  boolean downRight;
   Pong()
   {
     
@@ -59,7 +63,7 @@ class Pong
   
   void ballMove()
   {
-    if(anyKey)
+    if(anyKey==false)
     {
       x += speedX;
       y += speedY;
