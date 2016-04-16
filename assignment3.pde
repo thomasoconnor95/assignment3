@@ -20,7 +20,7 @@ void setup()
   
   mySnake = new Snake();
   myPong = new Pong();
-}
+}//end setup
 
 void draw() 
 {
@@ -31,16 +31,18 @@ void draw()
   text("Please select a game", width/2 - 120, height/2 - 100);
   text("Pong", width/2, height/2 -50);
   text("Snake", width/2, height/2);
-}
+}//end draw
 
 void mousePressed()
 {
   if ((mouseX > 500) && (mouseX < 520) && (mouseY > 320) && (mouseY < 350))
   {
     myPong.run();
-  }
+  }//end if
+  
   if ((mouseX > 500) && (mouseX < 520) && (mouseY >370) && (mouseY<395))
   {
     mySnake.run();
-  }
-}
+  }//end if
+  
+}//end mousePressed
