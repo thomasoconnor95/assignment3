@@ -100,4 +100,4 @@ class Snake
       dir = newdir;
     }
   }
-}}
+}
