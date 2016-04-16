@@ -15,11 +15,13 @@ class Pong
   Pong()
   {
     run();
-  }
+  }//end pong
+  
   void run()
   {
     draw();
-  }
+  }//end run
+  
   void draw()
   {
     drawPaddle();
@@ -29,7 +31,8 @@ class Pong
     paddleMove();
     paddleBoundary();
     paddleHit();
-  }
+  }//end draw
+  
   void drawPaddle()
   {
     //paddle variables
@@ -48,7 +51,8 @@ class Pong
     //right paddle
     fill(0,0,255);
     rect(paddleRightX, paddleRightY, paddleW, paddleH);
-  }
+  }//end drawPaddle
+  
   void drawBall()
   {
     //ball initialisation
@@ -60,7 +64,7 @@ class Pong
     anyKey=false;
     fill(0,255,0);
     ellipse(x,y,w,w);
-  }
+  }//end drawBall
   
   void ballMove()
   {
@@ -68,8 +72,8 @@ class Pong
     {
       x += speedX;
       y += speedY;
-    }
-  }
+    }//end if
+  }//end ballMove
   
   void ballBounce()
   {
@@ -78,22 +82,25 @@ class Pong
     {
       scoreLeft++;
       speedX = - speedX;
-    }
+    }//end if
     
     //ball hits left
     if( x < 0+ w/2)
     {
       scoreRight++;
-    }
+    }//end if
+    
     //ball hits top or bottom of the screen
     if( y > width - w/2)
     {
       speedY = - speedY;
-    }
+    }//end if
+    
     else if (y<0 + w/2)
     {
       speedY = - speedY;
-    }
+    }//end else if
+    
   }//end ballBounce
   
   void paddleMove()
@@ -104,13 +111,14 @@ class Pong
       if(upLeft == true)
       {
         paddleLeftY -= paddleS;
-      }
+      }//end if
       
       if(downLeft == true)
       {
         paddleLeftY += paddleS;
-      }
-    }
+      }//end if
+      
+    }//end if
     
     //right paddle
     if(paddleRightY < height - (paddleH/2) && paddleRightY > paddleH/2)
@@ -118,13 +126,15 @@ class Pong
       if (upRight == true)
       {
         paddleRightY -= paddleS;
-      }
+      }//end if
       
       if(downRight == true)
       {
         paddleRightY += paddleS;
-      }
-    }
+      }//end if
+      
+    }//end if
+    
   }//end paddleMove
   
     //paddleboundary so the paddle doesnt leave the screen
@@ -134,22 +144,24 @@ class Pong
     if(paddleLeftY - paddleH/2 -1 < 0)
     {
       paddleLeftY += paddleS;
-    }
+    }//end if
     
     if( paddleLeftY + paddleH/2 +1 > height)
     {
       paddleLeftY -= paddleS;
-    }
+    }//end if
     
     //right paddle
     if(paddleRightY - paddleH/2 -1 <0)
     {
       paddleRightY += paddleS;
-    }
+    }//end if
+    
     if(paddleRightY + paddleH/2 +1 > height)
     {
       paddleRightY -= paddleS;
-    }
+    }//end if
+    
   }//end paddleboundary
   
   void paddleHit()
@@ -159,14 +171,19 @@ class Pong
       if(speedX < 0)
       {
         speedX = -speedX;
-      }
-    }
+      }//end if
+      
+    }//end if
+    
     if(x + w/2 > paddleRightX - paddleW/2 && y + w/2 > paddleRightY - paddleH/2 && y - w/2 < paddleRightY + paddleH/2)
     {
       if (speedX > 0)
       {
         speedX = -speedX;
-      }
-    }
+      }//end if
+      
+    }//end if
+    
   }//end paddleHit
+  
 }//end class
