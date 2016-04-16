@@ -169,3 +169,4 @@ class Pong
       }
     }
   }//end paddleHit
+}//end class
