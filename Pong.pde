@@ -20,17 +20,17 @@ class Pong
   void run()
   {
     draw();
+    ballMove();
+    ballBounce();
+    paddleMove();
+    paddleBoundary();
+    paddleHit();
   }//end run
   
   void draw()
   {
     drawPaddle();
     drawBall();
-    ballMove();
-    ballBounce();
-    paddleMove();
-    paddleBoundary();
-    paddleHit();
   }//end draw
   
   void drawPaddle()
@@ -44,6 +44,7 @@ class Pong
     
     paddleW = 25;
     paddleH = 100;
+    
     //left paddle
     fill(255,0,0);
     rect(paddleLeftX, paddleLeftY, paddleW, paddleH);
@@ -78,8 +79,10 @@ class Pong
   void ballBounce()
   {
     //if the ball hits the sides
-    if(x > width - w/2); //ball hits the right
+    if(x > width - w/2); 
+    //ball hits the right
     {
+      //left score is incremented
       scoreLeft++;
       speedX = - speedX;
     }//end if
@@ -87,6 +90,7 @@ class Pong
     //ball hits left
     if( x < 0+ w/2)
     {
+      //right score is incremented
       scoreRight++;
     }//end if
     
@@ -164,8 +168,10 @@ class Pong
     
   }//end paddleboundary
   
+  //when the ball hits off the paddle
   void paddleHit()
   {
+    //if the ball hits the left paddle
     if(x - w/2 < paddleLeftX+ paddleW/2 && y - w/2 < paddleLeftY + paddleH/2 && y + w/2 > paddleLeftY - paddleH/2)
     {
       if(speedX < 0)
@@ -175,6 +181,7 @@ class Pong
       
     }//end if
     
+    //if the ball hits the right paddle
     if(x + w/2 > paddleRightX - paddleW/2 && y + w/2 > paddleRightY - paddleH/2 && y - w/2 < paddleRightY + paddleH/2)
     {
       if (speedX > 0)
