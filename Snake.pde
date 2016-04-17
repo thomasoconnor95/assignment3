@@ -30,6 +30,7 @@ class Snake
   void draw()
   {
     background(255);
+    
     //squares for the snake to move around in
     for (int i = 0; i < w;i ++)
     {
@@ -112,7 +113,8 @@ class Snake
   
   void keyPressed()
   {
-    int newdir = key =='s' ? 0 : (key=='w' ? 1 : (key=='d' ? 2 : (key=='a' ? 3 : -1)));
+    //controls to move the snake
+    int newdir = key ==DOWN ? 0 : (key==UP ? 1 : (key==RIGHT ? 2 : (key==LEFT ? 3 : -1)));
     if (newdir != -1 && (x.size() <= 1 || !(x.get(1)== x.get(0) + dx[newdir] && y.get(1)==y.get(0)+ dy[newdir])))
     {
       dir = newdir;
