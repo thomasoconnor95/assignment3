@@ -5,10 +5,10 @@ class Snake
   int h = 30;
   int bs = 20;
   int i;
-  int dir;
-  int[] dx = {0,0,1,-1}, dy = {1,-1,0,0};
-  int applex = 12;
-  int appley = 10;
+  int direction;
+  int[] directionX = {0,0,1,-1}, directionY = {1,-1,0,0};
+  int foodX = 12;
+  int foodY = 10;
   boolean gameover = false;
   
   Snake()
@@ -52,11 +52,11 @@ class Snake
     if(!gameover)
     {
       fill(255,0,0);
-      rect(applex*bs, appley*bs, bs, bs); //apple
+      rect(foodX*bs, foodY*bs, bs, bs); //apple
       if (frameCount %5 ==0)
       {
-        x.add(0,x.get(0) + dx[dir]);
-        y.add(0,y.get(0) + dy[dir]);
+        x.add(0,x.get(0) + directionX[direction]);
+        y.add(0,y.get(0) + directionY[direction]);
         
         //if the snake goes passed the edges of screen game over
         if(x.get(0)< 0 || y.get(0) < 0 || x.get(0) >= w || y.get(0) >= h)
@@ -74,11 +74,11 @@ class Snake
         }//end for
         
         //if snake touches apple
-        if(x.get(0) ==applex && y.get(0)==appley)
+        if(x.get(0) ==foodX && y.get(0)==foodY)
         {
           //apple spawns in a random place
-          applex = (int)random(0,w);
-          appley = (int)random(0,h);
+          foodX = (int)random(0,w);
+          foodY = (int)random(0,h);
         }//end if
         else
         {
@@ -115,9 +115,9 @@ class Snake
   {
     //controls to move the snake
     int newdir = key ==DOWN ? 0 : (key==UP ? 1 : (key==RIGHT ? 2 : (key==LEFT ? 3 : -1)));
-    if (newdir != -1 && (x.size() <= 1 || !(x.get(1)== x.get(0) + dx[newdir] && y.get(1)==y.get(0)+ dy[newdir])))
+    if (newdir != -1 && (x.size() <= 1 || !(x.get(1)== x.get(0) + directionX[newdir] && y.get(1)==y.get(0)+ directionY[newdir])))
     {
-      dir = newdir;
+      direction = newdir;
     }//end if
     
   }//end keyPressed()
