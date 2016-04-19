@@ -1,16 +1,16 @@
 class Pong 
 {
-  int paddleLeftX, paddleLeftY, paddleW, paddleH;
-  int paddleRightX, paddleRightY, paddleS;
+  int LeftX, LeftY, Width, Height;
+  int RightX, RightY, paddleS;
   int x, y, w;
   int speedX, speedY;
-  int scoreLeft = 0;
-  int scoreRight = 0;
+  int LeftScore = 0;
+  int RightScore = 0;
   boolean anyKey;
-  boolean upLeft;
-  boolean downLeft;
-  boolean upRight;
-  boolean downRight;
+  boolean LeftUp;
+  boolean LeftDown;
+  boolean RightUP;
+  boolean RightDown;
   
   Pong()
   {
@@ -36,22 +36,22 @@ class Pong
   void drawPaddle()
   {
     //paddle variables
-    paddleLeftX = 50;
-    paddleLeftY = height/2;
+    LeftX = 50;
+    LeftY = height/2;
     
-    paddleRightX = width-50;
-    paddleRightY = height/2;
+    RightX = width-50;
+    RightY = height/2;
     
-    paddleW = 25;
-    paddleH = 100;
+    Width = 25;
+    Height = 100;
     
     //left paddle
     fill(255,0,0);
-    rect(paddleLeftX, paddleLeftY, paddleW, paddleH);
+    rect(LeftX, LeftY, Width, Height);
     
     //right paddle
     fill(0,0,255);
-    rect(paddleRightX, paddleRightY, paddleW, paddleH);
+    rect(RightX, RightY, Width, Height);
   }//end drawPaddle
   
   void drawBall()
@@ -83,7 +83,7 @@ class Pong
     //ball hits the right
     {
       //left score is incremented
-      scoreLeft++;
+      LeftScore++;
       speedX = - speedX;
     }//end if
     
@@ -91,7 +91,7 @@ class Pong
     if( x < 0+ w/2)
     {
       //right score is incremented
-      scoreRight++;
+      RightScore++;
     }//end if
     
     //ball hits top or bottom of the screen
@@ -110,31 +110,31 @@ class Pong
   void paddleMove()
   {
     //left paddle
-    if(paddleLeftY < height - (paddleH/2) && paddleLeftY > paddleH/2)
+    if(LeftY < height - (Height/2) && LeftY > Height/2)
     {
-      if(upLeft == true)
+      if(LeftUp == true)
       {
-        paddleLeftY -= paddleS;
+        LeftY -= paddleS;
       }//end if
       
-      if(downLeft == true)
+      if(LeftDown == true)
       {
-        paddleLeftY += paddleS;
+        LeftY += paddleS;
       }//end if
       
     }//end if
     
     //right paddle
-    if(paddleRightY < height - (paddleH/2) && paddleRightY > paddleH/2)
+    if(RightY < height - (Height/2) && RightY > Height/2)
     {
-      if (upRight == true)
+      if (RightUP == true)
       {
-        paddleRightY -= paddleS;
+        RightY -= paddleS;
       }//end if
       
-      if(downRight == true)
+      if(RightDown == true)
       {
-        paddleRightY += paddleS;
+        RightY += paddleS;
       }//end if
       
     }//end if
@@ -145,25 +145,25 @@ class Pong
   void paddleBoundary()
   {
     //left paddle
-    if(paddleLeftY - paddleH/2 -1 < 0)
+    if(LeftY - Height/2 -1 < 0)
     {
-      paddleLeftY += paddleS;
+      LeftY += paddleS;
     }//end if
     
-    if( paddleLeftY + paddleH/2 +1 > height)
+    if( LeftY + Height/2 +1 > height)
     {
-      paddleLeftY -= paddleS;
+      LeftY -= paddleS;
     }//end if
     
     //right paddle
-    if(paddleRightY - paddleH/2 -1 <0)
+    if(RightY - Height/2 -1 <0)
     {
-      paddleRightY += paddleS;
+      RightY += paddleS;
     }//end if
     
-    if(paddleRightY + paddleH/2 +1 > height)
+    if(RightY + Height/2 +1 > height)
     {
-      paddleRightY -= paddleS;
+      RightY -= paddleS;
     }//end if
     
   }//end paddleboundary
@@ -172,7 +172,7 @@ class Pong
   void paddleHit()
   {
     //if the ball hits the left paddle
-    if(x - w/2 < paddleLeftX+ paddleW/2 && y - w/2 < paddleLeftY + paddleH/2 && y + w/2 > paddleLeftY - paddleH/2)
+    if(x - w/2 < LeftX+ Width/2 && y - w/2 < LeftY + Height/2 && y + w/2 > LeftY - Height/2)
     {
       if(speedX < 0)
       {
@@ -182,7 +182,7 @@ class Pong
     }//end if
     
     //if the ball hits the right paddle
-    if(x + w/2 > paddleRightX - paddleW/2 && y + w/2 > paddleRightY - paddleH/2 && y - w/2 < paddleRightY + paddleH/2)
+    if(x + w/2 > RightX - Width/2 && y + w/2 > RightY - Height/2 && y - w/2 < RightY + Height/2)
     {
       if (speedX > 0)
       {
