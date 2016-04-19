@@ -192,5 +192,31 @@ class Pong
     }//end if
     
   }//end paddleHit
+  void keyPressed()
+  {
+    //left paddle
+    if(key == 'w')
+    {  
+      //if w is pressed left paddle goes up
+      LeftUp = true;
+    }
+    if(key == 's')
+    { 
+      //if s is pressed the left paddle goes down
+      LeftDown = true;
+    }
+  
+    //right paddle movement
+    if(key == UP)
+    {  
+      //if up arrow is pressed, right paddle moves up
+      RightUP = true;
+    }
+    if(key == DOWN)
+    {  
+      //if down arrow is pressed the right paddle moves downwards
+      RightDown = true;
+    }
+  }//end keyPressed
   
 }//end class
