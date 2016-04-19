@@ -1,7 +1,7 @@
 class Pong 
 {
   int LeftX, LeftY, Width, Height;
-  int RightX, RightY, paddleS;
+  int RightX, RightY, pSpeed;
   int x, y, w;
   int speedX, speedY;
   int LeftScore = 0;
@@ -114,12 +114,12 @@ class Pong
     {
       if(LeftUp == true)
       {
-        LeftY -= paddleS;
+        LeftY -= pSpeed;
       }//end if
       
       if(LeftDown == true)
       {
-        LeftY += paddleS;
+        LeftY += pSpeed;
       }//end if
       
     }//end if
@@ -129,12 +129,12 @@ class Pong
     {
       if (RightUP == true)
       {
-        RightY -= paddleS;
+        RightY -= pSpeed;
       }//end if
       
       if(RightDown == true)
       {
-        RightY += paddleS;
+        RightY += pSpeed;
       }//end if
       
     }//end if
@@ -147,23 +147,23 @@ class Pong
     //left paddle
     if(LeftY - Height/2 -1 < 0)
     {
-      LeftY += paddleS;
+      LeftY += pSpeed;
     }//end if
     
     if( LeftY + Height/2 +1 > height)
     {
-      LeftY -= paddleS;
+      LeftY -= pSpeed;
     }//end if
     
     //right paddle
     if(RightY - Height/2 -1 <0)
     {
-      RightY += paddleS;
+      RightY += pSpeed;
     }//end if
     
     if(RightY + Height/2 +1 > height)
     {
-      RightY -= paddleS;
+      RightY -= pSpeed;
     }//end if
     
   }//end paddleboundary
