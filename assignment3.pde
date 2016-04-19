@@ -37,11 +37,13 @@ void mousePressed()
 {
   if ((mouseX > 500) && (mouseX < 520) && (mouseY > 320) && (mouseY < 350))
   {
+    //run pong game
     myPong.run();
   }//end if
   
   if ((mouseX > 500) && (mouseX < 520) && (mouseY >370) && (mouseY<395))
   {
+    //run snake game
     mySnake.run();
   }//end if
   
